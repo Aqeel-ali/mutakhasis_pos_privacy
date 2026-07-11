@@ -1,0 +1,709 @@
+/* ==========================================================================
+   نظام التصميم والألوان العام
+   ========================================================================== */
+:root {
+    --primary-color: #2856e7; /* اللون الأزرق الأساسي للتطبيق */
+    --secondary-color: #06AE8B; /* اللون الأخضر الزمردي لبراند دكان برمجة */
+    --accent-color: #ff9800;
+    --dark-color: #0f172a;
+    --light-color: #f8fafc;
+    --gray-color: #64748b;
+    --card-bg-light: rgba(255, 255, 255, 0.85);
+    --card-bg-dark: rgba(15, 23, 42, 0.85);
+    --border-color: rgba(226, 232, 240, 0.8);
+    --transition-speed: 0.3s;
+}
+
+/* ==========================================================================
+   إعدادات الصفحة والخطوط الأساسية
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   خلفيات التدرج والأنيميشن الحركية
+   ========================================================================== */
+.bg-gradient-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    animation: float 20s infinite alternate ease-in-out;
+}
+
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    background-color: var(--primary-color);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 350px;
+    height: 350px;
+    background-color: var(--secondary-color);
+    top: 50%;
+    right: -100px;
+    animation-delay: 5s;
+}
+
+.shape-3 {
+    width: 300px;
+    height: 300px;
+    background-color: var(--primary-color);
+    bottom: -100px;
+    left: 20%;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(50px, 50px) scale(1.1);
+    }
+}
+
+/* ==========================================================================
+   النافبار والترويسة العلوي (Header)
+   ========================================================================== */
+.header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all var(--transition-speed) ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.app-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px; /* حواف منحنية جميلة للشعار */
+    box-shadow: 0 4px 12px rgba(40, 86, 231, 0.15);
+    object-fit: cover;
+    transition: transform var(--transition-speed) ease;
+}
+
+.app-logo:hover {
+    transform: scale(1.08);
+}
+
+.brand-text h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.brand-text span {
+    font-size: 0.75rem;
+    color: var(--gray-color);
+    font-weight: 500;
+}
+
+.nav {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-link {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: rgba(40, 86, 231, 0.08);
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   قسم واجهة البطل (Hero Section)
+   ========================================================================== */
+.hero-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.badge {
+    background-color: rgba(40, 86, 231, 0.08);
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 30px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.hero-content p {
+    font-size: 1.05rem;
+    color: var(--gray-color);
+    margin-bottom: 32px;
+    height: auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 8px 20px rgba(40, 86, 231, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: #1d45bd;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(40, 86, 231, 0.35);
+}
+
+.btn-secondary {
+    background-color: rgba(6, 174, 139, 0.1);
+    color: var(--secondary-color);
+    border: 1px solid rgba(6, 174, 139, 0.25);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-showcase {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.large-logo {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px; /* حواف منحنية كبيرة وأنيقة جداً للشعار الرئيسي */
+    box-shadow: 0 20px 40px rgba(40, 86, 231, 0.25);
+    z-index: 2;
+    object-fit: cover;
+    animation: logoFloat 6s infinite ease-in-out;
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 2px dashed rgba(40, 86, 231, 0.2);
+    animation: rotateRing 30s infinite linear;
+}
+
+@keyframes rotateRing {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================================
+   المبادئ والمحاور (Principles Section)
+   ========================================================================== */
+.principles-section {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.section-title {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 56px;
+}
+
+.section-title h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    font-size: 0.95rem;
+    color: var(--gray-color);
+}
+
+.grid {
+    display: grid;
+    gap: 32px;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    background-color: var(--card-bg-light);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border-color);
+    padding: 32px;
+    border-radius: 24px;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04);
+    border-color: rgba(40, 86, 231, 0.2);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+}
+
+.success-icon {
+    background-color: rgba(6, 174, 139, 0.08);
+    color: var(--secondary-color);
+}
+
+.primary-icon {
+    background-color: rgba(40, 86, 231, 0.08);
+    color: var(--primary-color);
+}
+
+.secondary-icon {
+    background-color: rgba(255, 152, 0, 0.08);
+    color: var(--accent-color);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--dark-color);
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   سياسة البيانات التفصيلية (Detailed Data Policy)
+   ========================================================================== */
+.data-policy-section {
+    padding: 80px 0;
+}
+
+.policy-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.policy-item {
+    background-color: var(--card-bg-light);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border-color);
+    padding: 32px;
+    border-radius: 24px;
+    margin-bottom: 24px;
+    transition: border-color var(--transition-speed) ease;
+}
+
+.policy-item:hover {
+    border-color: rgba(40, 86, 231, 0.15);
+}
+
+.policy-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.policy-header .number {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: rgba(40, 86, 231, 0.08);
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.policy-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.policy-item p {
+    font-size: 0.95rem;
+    color: var(--gray-color);
+    line-height: 1.7;
+}
+
+.policy-list {
+    margin-top: 16px;
+    padding-right: 24px;
+    list-style-type: none;
+}
+
+.policy-list li {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.policy-list li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-right: -1em;
+    position: absolute;
+    right: -15px;
+}
+
+/* ==========================================================================
+   قسم التواصل (Contact Section)
+   ========================================================================== */
+.contact-section {
+    padding: 80px 0;
+    background-color: rgba(40, 86, 231, 0.02);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.contact-info h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 12px;
+}
+
+.contact-info p {
+    font-size: 0.95rem;
+    color: var(--gray-color);
+    margin-bottom: 32px;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-tile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--dark-color);
+    background-color: white;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.contact-tile:hover {
+    transform: translateX(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+}
+
+.tile-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.whatsapp-tile .tile-icon {
+    background-color: rgba(37, 211, 102, 0.08);
+    color: #25D366;
+}
+
+.whatsapp-tile:hover {
+    border-color: rgba(37, 211, 102, 0.3);
+}
+
+.phone-tile .tile-icon {
+    background-color: rgba(40, 86, 231, 0.08);
+    color: var(--primary-color);
+}
+
+.phone-tile:hover {
+    border-color: rgba(40, 86, 231, 0.3);
+}
+
+.web-tile .tile-icon {
+    background-color: rgba(6, 174, 139, 0.08);
+    color: var(--secondary-color);
+}
+
+.web-tile:hover {
+    border-color: rgba(6, 174, 139, 0.3);
+}
+
+.tile-text h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.tile-text span {
+    font-size: 0.8rem;
+    color: var(--gray-color);
+}
+
+.contact-card {
+    background: linear-gradient(135deg, var(--secondary-color), #059375);
+    padding: 40px;
+    border-radius: 28px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(6, 174, 139, 0.2);
+}
+
+.contact-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.company-desc {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+.company-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.company-features span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.company-features i {
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+/* ==========================================================================
+   الفوتر (Footer)
+   ========================================================================== */
+.footer {
+    background-color: #0b0f19;
+    color: #94a3b8;
+    padding: 32px 0;
+    font-size: 0.85rem;
+    border-top: 1px solid #1e293b;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer a:hover {
+    color: #0ec7a1;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* ==========================================================================
+   الاستجابة لشاشات الأجهزة المختلفة (Responsive)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+    .hero-content {
+        align-items: center;
+    }
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
