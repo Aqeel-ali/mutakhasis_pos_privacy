@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- خلفية تفاعلية متحركة -->
     <div class="bg-gradient-shapes">
         <div class="shape shape-1"></div>
@@ -36,6 +35,7 @@
                 <a href="#about" class="nav-link active"><i class="fa-solid fa-circle-info"></i> نظرة عامة</a>
                 <a href="#principles" class="nav-link"><i class="fa-solid fa-shield-halved"></i> مبادئنا</a>
                 <a href="#data-policy" class="nav-link"><i class="fa-solid fa-database"></i> سياسة البيانات</a>
+                <a href="#subscriptions" class="nav-link"><i class="fa-brands fa-apple"></i> الاشتراكات و In-App</a>
                 <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> اتصل بنا</a>
             </nav>
         </div>
@@ -131,9 +131,104 @@
                     <div class="policy-item animate-left" style="animation-delay: 0.3s;">
                         <div class="policy-header">
                             <span class="number">04</span>
-                            <h3>التفعيل وتراخيص الأجهزة (Firebase)</h3>
+                            <h3>منظومة التفعيل السحابي والتراخيص (Dokan Activation)</h3>
                         </div>
-                        <p>لضمان حماية حقوق الملكية الفكرية وإدارة اشتراكات المستخدمين، يقوم التطبيق بتسجيل معرف فريد للجهاز (UDID) وتاريخ تفعيل كود الاشتراك وتاريخ انتهائه في قاعدة بيانات Firebase Firestore السحابية الآمنة. هذه البيانات مجهلة بالكامل ولا تحتوي على أي معلومات شخصية تحدد هويتك الحقيقية.</p>
+                        <p>لضمان حماية حقوق الملكية الفكرية وإدارة صلاحيات الأجهزة، يتصل التطبيق بخادم التراخيص المشفر التابع لـ <strong>دكان برمجة</strong> (عبر بروتوكول TLS 1.3 الآمن). تقتصر البيانات المتبادلة على المعرّف الرقمي للجهاز (Device UDID)، نوع الجهاز ونظام التشغيل، وتاريخ بدء وانتهاء الاشتراك لتأكيد صلاحية الاستخدام دون جمع أي بيانات شخصية أو تجارية حساسة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- سياسة الاشتراكات والمشتريات الرقمية (In-App Purchases & Subscriptions) -->
+    <section class="subscriptions-section" id="subscriptions">
+        <div class="container">
+            <div class="section-title">
+                <span class="badge"><i class="fa-brands fa-apple"></i> متجر تطبيقات أبل (Apple App Store)</span>
+                <h2>الاشتراكات والمشتريات الرقمية (In-App Purchases)</h2>
+                <p>شفافية مطلقة لعمليات الشراء، الدفع، التجديد التلقائي، وحماية البيانات لكافة مستخدمي نظام iOS وتطبيق المتخصص للمبيعات.</p>
+            </div>
+
+            <div class="policy-wrapper">
+                <div class="policy-tab-content">
+                    <!-- بند 1: آلية الدفع وحماية البيانات المالية -->
+                    <div class="policy-item animate-left">
+                        <div class="policy-header">
+                            <div class="card-icon primary-icon" style="width: 44px; height: 44px; margin-bottom: 0; font-size: 1.2rem; border-radius: 12px;"><i class="fa-solid fa-credit-card"></i></div>
+                            <h3>1. المعالجة المالية المباشرة عبر Apple App Store</h3>
+                        </div>
+                        <p>تتم كافة عمليات الدفع والاشتراك في باقات <strong>Dokan Pro</strong> لمستخدمي أجهزة iPhone و iPad حصرياً عبر نظام الشراء داخل التطبيق الرسمي التابع لشركة أبل (StoreKit / Apple In-App Purchase):</p>
+                        <ul class="policy-list">
+                            <li><strong>انعدام الوصول للبيانات المصرفية:</strong> خوادم دكان برمجة وتطبيق المتخصص <strong>لا يجمعون، ولا يخزنون، ولا يطّلعون</strong> على أي أرقام بطاقات ائتمانية، حسابات بنكية، أو بيانات دفع.</li>
+                            <li><strong>حماية وتشفير Apple:</strong> تتم معالجة الدفع بالكامل داخل البيئة الآمنة والمشفرة لشركة Apple Inc عبر حساب Apple ID الخاص بك.</li>
+                        </ul>
+                    </div>
+
+                    <!-- بند 2: معالجة الإيصالات والتحقق اللحظي عبر RevenueCat -->
+                    <div class="policy-item animate-left" style="animation-delay: 0.1s;">
+                        <div class="policy-header">
+                            <div class="card-icon success-icon" style="width: 44px; height: 44px; margin-bottom: 0; font-size: 1.2rem; border-radius: 12px;"><i class="fa-solid fa-receipt"></i></div>
+                            <h3>2. التحقق من الإيصالات الرقمية (RevenueCat Integration)</h3>
+                        </div>
+                        <p>نعتمد منصة <strong>RevenueCat</strong> المعتمدة دولياً كوسيط تقني حصري للتحقق اللحظي المشفر من إيصالات الشراء الرقمية القادمة من StoreKit ومزامنة الصلاحيات مع خادم التراخيص:</p>
+                        <ul class="policy-list">
+                            <li><strong>بيانات مجهلة بالكامل:</strong> تقتصر البيانات المشتركة مع RevenueCat على معرّف عشوائي مجهول للعميل (Anonymous App User ID) وسجل المعاملة الرقمية الصادر من أبل.</li>
+                            <li><strong>انعدام التتبع الإعلاني:</strong> لا يتم استخدام RevenueCat لأي أغراض إعلانية أو تتبع سلوكي أو بيع للبيانات لأي طرف ثالث نهائياً.</li>
+                        </ul>
+                    </div>
+
+                    <!-- بند 3: أنواع الباقات وشروط التجديد التلقائي -->
+                    <div class="policy-item animate-left" style="animation-delay: 0.2s;">
+                        <div class="policy-header">
+                            <div class="card-icon secondary-icon" style="width: 44px; height: 44px; margin-bottom: 0; font-size: 1.2rem; border-radius: 12px;"><i class="fa-solid fa-arrows-rotate"></i></div>
+                            <h3>3. باقات الاشتراك وشروط التجديد التلقائي (Auto-Renewable)</h3>
+                        </div>
+                        <p>يوفر التطبيق باقات اشتراك دورية متجددة تلقائياً للترقية إلى الصلاحيات الاحترافية (Dokan Pro):</p>
+                        <ul class="policy-list">
+                            <li><strong>الباقات المعتمدة:</strong> الاشتراك الشهري (1 Month)، اشتراك 3 أشهر (3 Months)، اشتراك 6 أشهر (6 Months)، والاشتراك السنوي (1 Year).</li>
+                            <li><strong>الخصم المالي:</strong> يتم خصم قيمة الاشتراك من حساب Apple ID الخاص بك فور تأكيدك لعملية الشراء.</li>
+                            <li><strong>آلية التجديد التلقائي:</strong> يتجدد الاشتراك تلقائياً بنفس القيمة المحددة لنفس المدة ما لم يتم إيقاف خاصية التجديد التلقائي قبل 24 ساعة على الأقل من نهاية الفترة الحالية.</li>
+                        </ul>
+                    </div>
+
+                    <!-- بند 4: إدارة الاشتراكات، الإلغاء، وسياسة الاسترداد -->
+                    <div class="policy-item animate-left" style="animation-delay: 0.3s;">
+                        <div class="policy-header">
+                            <div class="card-icon primary-icon" style="width: 44px; height: 44px; margin-bottom: 0; font-size: 1.2rem; border-radius: 12px;"><i class="fa-solid fa-sliders"></i></div>
+                            <h3>4. إدارة الاشتراكات، الإلغاء، وسياسة الاسترداد المالي (Refunds)</h3>
+                        </div>
+                        <p>نمنحك السيطرة الكاملة على اشتراكك بدون أي تعقيد:</p>
+                        <ul class="policy-list">
+                            <li><strong>كيفية إلغاء الاشتراك في أي وقت:</strong> افتح إعدادات هاتفك (Settings) &gt; اضغط على اسمك (Apple ID) &gt; اضغط على الاشتراكات (Subscriptions) &gt; اختر تطبيق المتخصص للمبيعات &gt; اضغط على "إلغاء الاشتراك".</li>
+                            <li><strong>استمرار الخدمة حتى نهاية الفترة:</strong> عند إلغاء التجديد، يظل حسابك يتمتع بكافة ميزات Dokan Pro حتى انتهاء الفترة المدفوعة مسبقاً دون انقطاع.</li>
+                            <li><strong>سياسة الاسترداد المالي (Refund Policy):</strong> تخضع طلبات الاسترداد حصرياً للشروط والأحكام الرسمية لشركة Apple، وتتم إدارتها عبر موقع أبل المخصص: <a href="https://reportaproblem.apple.com" target="_blank" style="color: var(--primary-color); font-weight: 600; text-decoration: underline;">reportaproblem.apple.com</a>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- بند 5: ميزة استعادة المشتريات وشروط الاستخدام EULA -->
+                    <div class="policy-item animate-left" style="animation-delay: 0.4s;">
+                        <div class="policy-header">
+                            <div class="card-icon success-icon" style="width: 44px; height: 44px; margin-bottom: 0; font-size: 1.2rem; border-radius: 12px;"><i class="fa-solid fa-rotate-left"></i></div>
+                            <h3>5. استعادة المشتريات وشروط الاستخدام القياسية (EULA)</h3>
+                        </div>
+                        <p>التزاماً بإرشادات مراجعة متجر أبل (App Store Review Guideline 3.1.1):</p>
+                        <ul class="policy-list">
+                            <li><strong>زر استعادة المشتريات (Restore Purchases):</strong> يوفر التطبيق زراً واضحاً في شاشة الاشتراك يتيح للمستخدم استعادة صلاحيات باقته المدفوعة مجاناً وفورياً في حال قام بتغيير جهازه أو مسح التطبيق وإعادة تثبيته.</li>
+                            <li><strong>اتفاقية ترخيص المستخدم النهائي القياسية (EULA):</strong> يخضع استخدام التطبيق وميزاته لاتفاقية ترخيص المستخدم القياسية المعتمدة رسمياً من شركة أبل والمتاحة عبر الرابط التالي: <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" style="color: var(--primary-color); font-weight: 600; text-decoration: underline;">Apple Standard EULA</a>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- بند 6: الدعم الفني وتراخيص المؤسسات والشركات -->
+                    <div class="policy-item animate-left" style="animation-delay: 0.5s;">
+                        <div class="policy-header">
+                            <div class="card-icon secondary-icon" style="width: 44px; height: 44px; margin-bottom: 0; font-size: 1.2rem; border-radius: 12px;"><i class="fa-solid fa-headset"></i></div>
+                            <h3>6. الدعم الفني وتراخيص المؤسسات والشركات (Enterprise & Support)</h3>
+                        </div>
+                        <p>يوفر التطبيق تجربة مرنة وشاملة تلبي احتياجات كافة الأنشطة التجارية:</p>
+                        <ul class="policy-list">
+                            <li><strong>الاشتراكات الفردية المباشرة:</strong> تتم الترقية وإدارة الباقات الفردية مباشرة عبر نظام الشراء الرسمي في متجر أبل (Apple In-App Purchases) بكل سهولة وأمان.</li>
+                            <li><strong>حلول الأعمال والشركات:</strong> تتوفر خيارات مخصصة لربط الفروع المتعددة وتقديم الدعم الفني المباشر من خلال التواصل مع فريق دعم دكان برمجة لتوفير عروض واستشارات تناسب طبيعة وحجم أعمالهم.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -193,7 +288,9 @@
             <div class="footer-links">
                 <a href="#about">الرئيسية</a>
                 <a href="#principles">سياسة الأمان</a>
-                <a href="#data-policy">الشروط والأحكام</a>
+                <a href="#data-policy">سياسة البيانات</a>
+                <a href="#subscriptions">الاشتراكات و In-App</a>
+                <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">شروط الاستخدام (EULA)</a>
             </div>
         </div>
     </footer>
